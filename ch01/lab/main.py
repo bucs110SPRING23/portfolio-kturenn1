@@ -10,9 +10,13 @@ print("Cost per week:", cost_per_week)
 classes_per_week = 7
 cost_per_class = cost_per_week / classes_per_week
 print("The cost of class is", cost_per_class)
-print(classes_per_week, int(classes_per_week))
-print(cost_per_week, int(cost_per_week))
-print(cost_per_class, int(cost_per_class))
+# print(classes_per_week, int(classes_per_week))
+# print(cost_per_week, int(cost_per_week))
+# print(cost_per_class, int(cost_per_class))
+
+print(classes_per_week, type(classes_per_week))
+print(cost_per_week, type(cost_per_week))
+print(cost_per_class, type(cost_per_class))
 
 
 the_list = [1, 2, 3, 4, 5]
