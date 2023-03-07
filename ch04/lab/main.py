@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 pygame.init()
 window = pygame.display.set_mode()
@@ -16,11 +17,14 @@ while dart > 0:
     
     valuex = random.randrange(0, width1[0]+1)
     valuey = random.randrange(0, width1[1]+1)
-    pygame.draw.circle(window, "green", [valuex, valuey], 20)
 
-    distance_from_center = math.hypot(x1-x2, y1-y2) #the distance formula
-    is_in_circle = distance_from_center <= width/2 #screen width
+    distance_from_center = math.hypot((width1[0]/2)-valuex, (width1[1]/2)-valuey) #the distance formula
+    is_in_circle = distance_from_center <= width1[1]/2 #screen width
 
+    if is_in_circle:
+        pygame.draw.circle(window, "green", [valuex, valuey], 20)
+    else:
+        pygame.draw.circle(window, "red", [valuex, valuey], 20)
 
     dart -= 1
     pygame.display.flip()
@@ -28,3 +32,5 @@ while dart > 0:
 
 pygame.display.flip()
 pygame.time.wait(3000)
+
+window.exitonclick()
