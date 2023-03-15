@@ -1,40 +1,22 @@
-import random
-import turtle
+import pygame
+import math
 
-screen = pygame.display.set_mode()
+pygame.init()
+window = pygame.display.set_mode()
 
-turtle1 = turtle.Turtle()
-turtle1.color("red")
+points = []
+xpos = int(0)
+ypos = int(0)
+side_length = int(50)
+num_length = int(3)
 
-turtle2 = turtle.Turtle()
-turtle2.color("blue")
+for tri in range(num_length):
+    angle = 360/3
+    radians = math.radians(angle * tri)
+    x = xpos + side_length * math.cos(radians)
+    y = ypos + side_length * math.sin(radians)
+    points = [x,y]
 
-window = turtle.Screen()
-
-start1 = (-100,20)
-start2 = (-100,-20)
-
-turtle1.pu()
-turtle2.pu()
-
-turtle1.goto(start1)
-turtle2.goto(start2)
-
-turtle1.pd()
-turtle2.pd()
-
-# turtle1.forward(random.randrange(1,100))
-# turtle2.forward(random.randrange(1,100))
-
-# turtle1.goto(start1)
-# turtle2.goto(start2)
-
-mylist = ["turtle1", "turtle2"]
-for obj in mylist:
-    turtle1.forward(random.randrange(1,10))
-    turtle2.forward(random.randrange(1,10))
-
-turtle1.goto(start1)
-turtle2.goto(start2)
-
-window.exitonclick()
+pygame.draw.polygon(window, "red", points)
+pygame.display.flip()
+pygame.time.wait(3000)

@@ -1,0 +1,14 @@
+1
+"Hello"
+['a', 'b', 'c']
+
+[
+    1,
+    "Hello",
+    ["a", "b", "c"]
+]
+
+this is some data
+this is some more data
+this is even more data
+bruh
