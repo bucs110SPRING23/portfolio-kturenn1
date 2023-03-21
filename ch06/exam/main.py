@@ -9,29 +9,23 @@ pen.up()
 pen.setpos(30, 30)
 pen.down()
 
-len = input("what is the length of the picture frame? ")
-wid = input("what is the width of the picture frame? ")
-thick = input("what is the thickness of the picture frame? ")
-color = input("what color would you like the frame to be? ")
+leng = int(input("what is the length of the picture frame? "))
+thick = int(input("what is the thickness of the picture frame? "))
+color = str(input("what color would you like the frame to be? "))
 
-def square(x, y, z, col):
+def square(x, z, col):
+    """
+    this function draws a square
+    args: x = length of the square, z = thickness of the square, col = color of the square, col = color of the square
+    """
     pen.color(col)
-    # x = width
-    # y = height
-    # z = thickness
-    # col = color
+    pen.down()
 
     count = 0
     for count in range(0,4):
-        if count % 2 == 0:
-            pen.forward(int(y))
-            pen.left(90)
-            count += 1
-
-        else:
-            pen.forward(int(x))
-            pen.left(90)
-            count += 1
+        pen.forward(int(x))
+        pen.left(90)
+        count += 1
 
     pen.up()
     pen.left(90)
@@ -42,17 +36,7 @@ def square(x, y, z, col):
     count2 = 0
     for count2 in range(0,4):
         if count2 == 0:
-            pen.forward(int(y)-int(z))
-            pen.left(90)
-            count2 += 1
-
-        elif count2 == 1:
-            pen.forward(int(x)-(2*(int(z))))
-            pen.left(90)
-            count2 += 1
-
-        elif count2 == 3:
-            pen.forward(int(y)-(2*(int(z))))
+            pen.forward(int(x-int(z)))
             pen.left(90)
             count2 += 1
 
@@ -61,39 +45,58 @@ def square(x, y, z, col):
             pen.left(90)
             count2 += 1
 
-def can_we_banana():
-    if int(len) > 150 and int(wid) > 150:
+def can_we_banana(a):
+    """
+    this function checks if the frame is big enough
+    args: a = length of the frame
+    """
+    if a > 150:
         print("We can banana!")
         banana_time()
     else:
         print("no banana")
     
 def banana_time():
-    square(int(len), int(wid), int(thick), str(color))
+    """
+    this function draws the banana
+    """
+    square(leng, thick, color)
 
     pen.color('yellow')
     pen.up()
-    pen.forward(90)
+    pen.forward(120)
     pen.left(90)
-    pen.forward(90)
+    pen.forward(120)
     pen.down()
 
     angle = 0
     pen.up()
-    while angle < 90:
+    while angle < 120:
         pen.forward(10)
         pen.left(10)
         angle += 10
         
     pen.down()
-    while angle < 180:
+    while 0 < angle < 290:
         pen.forward(10)
         pen.left(10)
         angle += 10
+    
+    pen.left(85)
+    pen.forward(10)
+    pen.left(60)
 
+    angle = 120
+    while 0 < angle < 270:
+        pen.forward(10)
+        pen.right(10)
+        angle += 10
 
+def main():
 
-can_we_banana()
+    can_we_banana(leng)
+
+main()
 
 
 window.exitonclick()
