@@ -1,7 +1,4 @@
 
-#json is a string format not a file format
-import json
-
 def example():
     idea = input("Enter an idea: ")
     ideas = []
@@ -15,7 +12,7 @@ def main():
     ideas = file_pointer.read()
     print(ideas)
 
-    #reads everything "line by line" (says /n)
+    #reads everything "line by line" (says \n)
     ideas = file_pointer.readlines()
     print(ideas)
 

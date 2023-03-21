@@ -4,5 +4,6 @@
 - Preferred Name: Kimora
 - Discord Username: fortune.teller.fish#4631
 - Github Username: kturenn1
+- Github Password: Ki0116200413
 
 ![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg) by putting `https://gitpod.io/#` before your repo url.
