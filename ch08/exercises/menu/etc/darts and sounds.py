@@ -2,6 +2,12 @@ import pygame
 import random
 import math
 
+import os
+from pydub import AudioSegment
+from pydub.playback import play
+
+test = AudioSegment.from_file(os.path.expanduser("~/Downloads/Nope-Sound-Effect.mp3"))
+
 pygame.init()
 window = pygame.display.set_mode()
 width1 = pygame.display.get_window_size()
@@ -27,8 +33,11 @@ for event in pygame.event.get():
     if event.type == pygame.MOUSEBUTTONDOWN:
         if red.collidepoint(pygame.mouse.get_pos()):
             team = True
+            play(test)
+
         elif green.collidepoint(pygame.mouse.get_pos()):
             team = False
+            play(test)
 
     pygame.display.flip()
     pygame.time.wait(1000)
